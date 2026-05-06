@@ -11,60 +11,13 @@ import Quotes from "./components/main/Quotes";
 import "./App.css";
 import { Ripple } from "./components/ui/ripple";
 import Youtube from "./components/main/Youtube";
+import Navbar from "./components/main/Navbar";
 
 function App() {
   return (
     <div className="min-h-screen bg-[#f5f5f7]">
       {/* Navbar */}
-      <nav
-        className="
-          sticky top-0 z-50
-          flex items-center justify-between
-          border-b border-zinc-200
-          bg-white/80
-          px-8 py-5
-          backdrop-blur-xl
-        "
-      >
-        {/* Logo */}
-        <h1 className="text-2xl font-black tracking-tight text-zinc-900">
-          FreeAPI
-        </h1>
-
-        {/* Links */}
-        <div className="flex items-center gap-6 text-sm font-semibold text-zinc-600">
-          <Link to="/" className="transition hover:text-black">
-            Home
-          </Link>
-
-          <Link to="/users" className="transition hover:text-black">
-            Users
-          </Link>
-
-          <Link to="/jokes" className="transition hover:text-black">
-            Jokes
-          </Link>
-
-          <Link to="/cats" className="transition hover:text-black">
-            Cats
-          </Link>
-
-          <Link to="/meals" className="transition hover:text-black">
-            Meals
-          </Link>
-
-          <Link to="/products" className="transition hover:text-black">
-            Products
-          </Link>
-
-          <Link to="/quotes" className="transition hover:text-black">
-            Quotes
-          </Link>
-            <Link to="/youtube" className="transition hover:text-black">
-            Youtube
-          </Link>
-        </div>
-      </nav>
+      <Navbar/>
 
       {/* Routes */}
 
