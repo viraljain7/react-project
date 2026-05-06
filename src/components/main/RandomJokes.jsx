@@ -11,7 +11,7 @@ function RandomJokes() {
       setLoading(true);
 
       const res = await fetch(
-        "https://api.freeapi.app/api/v1/public/randomjokes"
+        "https://api.freeapi.app/api/v1/public/randomjokes",
       );
 
       const result = await res.json();
@@ -20,12 +20,9 @@ function RandomJokes() {
 
       setJokes(jokesData);
 
-      const randomNo = Math.floor(
-        Math.random() * jokesData.length
-      );
+      const randomNo = Math.floor(Math.random() * jokesData.length);
 
       setJoke(jokesData[randomNo]);
-
     } catch (error) {
       console.error("Failed to fetch joke:", error);
     } finally {
@@ -40,16 +37,13 @@ function RandomJokes() {
   const nextJokes = () => {
     if (!jokes.length) return;
 
-    const randomNo = Math.floor(
-      Math.random() * jokes.length
-    );
+    const randomNo = Math.floor(Math.random() * jokes.length);
 
     setJoke(jokes[randomNo]);
   };
 
   return (
     <div className="relative flex min-h-screen w-full items-center justify-center overflow-hidden bg-[#f8f8f8] p-10">
-      
       {/* Soft Glow */}
       <div className="absolute top-0 left-0 h-72 w-72 bg-yellow-300/20 blur-[120px]" />
 
@@ -59,7 +53,6 @@ function RandomJokes() {
       <div className="absolute inset-0 opacity-[0.03] bg-[url('https://grainy-gradients.vercel.app/noise.svg')]" />
 
       <div className="relative z-10 flex flex-col items-center gap-10">
-        
         {loading ? (
           <div className="animate-pulse">
             <JokesCard content="Loading a hilarious joke..." />
@@ -67,9 +60,7 @@ function RandomJokes() {
         ) : joke ? (
           <JokesCard content={joke.content} />
         ) : (
-          <p className="text-zinc-500">
-            No jokes found.
-          </p>
+          <p className="text-zinc-500">No jokes found.</p>
         )}
 
         {/* Button */}
@@ -121,7 +112,7 @@ const JokesCard = ({ content }) => {
           transition-all duration-500
           hover:-translate-y-1
           hover:shadow-[0_30px_100px_rgba(0,0,0,0.12)]
-        `
+        `,
       )}
     >
       {/* Gradient Glow */}
@@ -130,9 +121,7 @@ const JokesCard = ({ content }) => {
       <div className="absolute -bottom-10 -right-10 h-40 w-40 rounded-full bg-cyan-200/40 blur-[80px]" />
 
       {/* Emoji */}
-      <div className="relative z-10 text-6xl">
-        😂
-      </div>
+      <div className="relative z-10 text-6xl">😂</div>
 
       {/* Joke */}
       <blockquote
@@ -151,13 +140,10 @@ const JokesCard = ({ content }) => {
 
       {/* Footer */}
       <div className="relative z-10 mt-10 flex items-center justify-between">
-        
         <div>
           <p className="text-xs uppercase tracking-[4px] text-zinc-400">
             Random Joke
           </p>
-
-        
         </div>
 
         <div className="rounded-full border border-yellow-200 bg-yellow-100 px-4 py-1 text-xs font-semibold text-yellow-700">

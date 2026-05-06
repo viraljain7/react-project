@@ -10,6 +10,7 @@ import Product from "./components/main/Product";
 import Quotes from "./components/main/Quotes";
 import "./App.css";
 import { Ripple } from "./components/ui/ripple";
+import Youtube from "./components/main/Youtube";
 
 function App() {
   return (
@@ -59,6 +60,9 @@ function App() {
           <Link to="/quotes" className="transition hover:text-black">
             Quotes
           </Link>
+            <Link to="/youtube" className="transition hover:text-black">
+            Youtube
+          </Link>
         </div>
       </nav>
 
@@ -105,6 +109,8 @@ function App() {
                     "Meals",
                     "Products",
                     "Quotes",
+                          "Youtube",
+                    
                   ].map((item) => (
                     <Link
                       key={item}
@@ -132,7 +138,8 @@ function App() {
                           "Cats",
                           "Meals",
                           "Products",
-                          "Quotes",
+                            "Quotes",
+                          "Youtube",
                         ].indexOf(item) + 1}
                       </p>
 
@@ -211,6 +218,8 @@ function App() {
         <Route path="/products" element={<Product />} />
 
         <Route path="/quotes" element={<Quotes />} />
+        <Route path="/youtube" element={<Youtube />} />
+
       </Routes>
     </div>
   );

@@ -1,9 +1,5 @@
 import { useEffect, useState } from "react";
-import {
-  Star,
-  ShoppingCart,
-  RefreshCw,
-} from "lucide-react";
+import { Star, ShoppingCart, RefreshCw } from "lucide-react";
 
 function Products() {
   const [products, setProducts] = useState([]);
@@ -14,13 +10,12 @@ function Products() {
 
     try {
       const res = await fetch(
-        "https://api.freeapi.app/api/v1/public/randomproducts"
+        "https://api.freeapi.app/api/v1/public/randomproducts",
       );
 
       const data = await res.json();
 
       setProducts(data?.data?.data || []);
-
     } catch (error) {
       console.log(error);
     } finally {
@@ -34,10 +29,8 @@ function Products() {
 
   return (
     <div className="min-h-screen bg-[#f7f7f7] px-8 py-14">
-      
       {/* Header */}
       <div className="mx-auto mb-14 flex max-w-7xl items-center justify-between">
-        
         <div>
           <h1 className="text-5xl font-black tracking-tight text-zinc-900">
             Premium Products
@@ -65,19 +58,13 @@ function Products() {
             hover:shadow-lg
           "
         >
-          <RefreshCw
-            className={`h-4 w-4 ${
-              loading ? "animate-spin" : ""
-            }`}
-          />
-
+          <RefreshCw className={`h-4 w-4 ${loading ? "animate-spin" : ""}`} />
           Refresh
         </button>
       </div>
 
       {/* Products Grid */}
       <div className="mx-auto grid max-w-7xl grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-        
         {products?.slice(0, 8).map((product) => (
           <div
             key={product.id}
@@ -94,7 +81,6 @@ function Products() {
           >
             {/* Image */}
             <div className="relative overflow-hidden bg-[#fafafa] p-8">
-              
               {/* Discount */}
               <div
                 className="
@@ -126,7 +112,6 @@ function Products() {
 
             {/* Content */}
             <div className="p-6">
-              
               {/* Brand */}
               <p className="text-xs font-semibold uppercase tracking-[4px] text-zinc-400">
                 {product.brand}
@@ -154,7 +139,6 @@ function Products() {
 
               {/* Rating */}
               <div className="mt-5 flex items-center gap-2">
-                
                 <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
 
                 <span className="text-sm font-semibold text-zinc-700">
@@ -168,7 +152,6 @@ function Products() {
 
               {/* Footer */}
               <div className="mt-6 flex items-center justify-between">
-                
                 {/* Price */}
                 <div>
                   <p className="text-3xl font-black text-zinc-900">
@@ -202,9 +185,7 @@ function Products() {
       {/* Empty */}
       {!loading && products.length === 0 && (
         <div className="py-20 text-center">
-          <p className="text-zinc-500">
-            No products found.
-          </p>
+          <p className="text-zinc-500">No products found.</p>
         </div>
       )}
     </div>

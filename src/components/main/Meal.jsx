@@ -15,19 +15,15 @@ function Meal() {
     setLoading(true);
 
     try {
-      const res = await fetch(
-        "https://api.freeapi.app/api/v1/public/meals"
-      );
+      const res = await fetch("https://api.freeapi.app/api/v1/public/meals");
 
       const data = await res.json();
 
       const meals = data?.data?.data || [];
 
-      const randomMeal =
-        meals[Math.floor(Math.random() * meals.length)];
+      const randomMeal = meals[Math.floor(Math.random() * meals.length)];
 
       setMeal(randomMeal);
-
     } catch (error) {
       console.log(error);
     } finally {
@@ -64,7 +60,6 @@ function Meal() {
 
   return (
     <div className="min-h-screen bg-[#f7f7f7] p-8">
-      
       {/* Glow */}
       <div className="absolute top-0 left-0 h-72 w-72 rounded-full bg-orange-200/30 blur-[120px]" />
 
@@ -83,10 +78,8 @@ function Meal() {
         "
       >
         <div className="grid lg:grid-cols-2">
-          
           {/* Image */}
           <div className="relative h-[850px] overflow-hidden">
-            
             <img
               src={meal.strMealThumb}
               alt={meal.strMeal}
@@ -124,7 +117,6 @@ function Meal() {
 
             {/* Bottom Content */}
             <div className="absolute bottom-8 left-8 text-white">
-              
               <p className="text-sm uppercase tracking-[5px] text-white/70">
                 {meal.strCategory}
               </p>
@@ -134,7 +126,6 @@ function Meal() {
               </h1>
 
               <div className="mt-6 flex flex-wrap gap-3">
-                
                 <div className="rounded-full bg-white/10 px-4 py-2 text-sm backdrop-blur-xl">
                   {meal.strArea}
                 </div>
@@ -160,10 +151,8 @@ function Meal() {
 
           {/* Content */}
           <div className="p-10">
-            
             {/* Info */}
             <div className="flex flex-wrap gap-4">
-              
               <div className="rounded-2xl bg-zinc-100 px-5 py-4">
                 <UtensilsCrossed className="h-5 w-5 text-zinc-700" />
 
@@ -195,21 +184,15 @@ function Meal() {
                   Difficulty
                 </p>
 
-                <h3 className="mt-1 text-lg font-bold text-zinc-900">
-                  Medium
-                </h3>
+                <h3 className="mt-1 text-lg font-bold text-zinc-900">Medium</h3>
               </div>
             </div>
 
             {/* Ingredients */}
             <div className="mt-10">
-              
-              <h2 className="text-3xl font-black text-zinc-900">
-                Ingredients
-              </h2>
+              <h2 className="text-3xl font-black text-zinc-900">Ingredients</h2>
 
               <div className="mt-6 grid grid-cols-2 gap-4">
-                
                 {ingredients.map((item, index) => (
                   <div
                     key={index}
@@ -234,7 +217,6 @@ function Meal() {
 
             {/* Instructions */}
             <div className="mt-10">
-              
               <h2 className="text-3xl font-black text-zinc-900">
                 Instructions
               </h2>
@@ -246,16 +228,13 @@ function Meal() {
 
             {/* Footer */}
             <div className="mt-10 flex items-center justify-between border-t border-zinc-100 pt-8">
-              
               {/* Tags */}
               <div>
                 <p className="text-xs uppercase tracking-[4px] text-zinc-400">
                   Recipe Tags
                 </p>
 
-                <p className="mt-2 text-sm text-zinc-600">
-                  {meal.strTags}
-                </p>
+                <p className="mt-2 text-sm text-zinc-600">{meal.strTags}</p>
               </div>
 
               {/* YouTube */}
@@ -275,7 +254,6 @@ function Meal() {
                   "
                 >
                   <PlayCircle className="h-5 w-5" />
-
                   Watch Recipe
                 </a>
               )}

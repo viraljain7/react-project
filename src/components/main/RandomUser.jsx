@@ -1,9 +1,4 @@
-import {
-  MapPin,
-  Globe,
-  Mail,
-  RefreshCw,
-} from "lucide-react";
+import { MapPin, Globe, Mail, RefreshCw } from "lucide-react";
 
 import { useEffect, useState } from "react";
 
@@ -16,13 +11,12 @@ function RandomUser() {
 
     try {
       const res = await fetch(
-        "https://api.freeapi.app/api/v1/public/randomusers?limit=20"
+        "https://api.freeapi.app/api/v1/public/randomusers?limit=20",
       );
 
       const data = await res.json();
 
       setUser(data?.data?.data || []);
-
     } catch (error) {
       console.log(error);
     } finally {
@@ -88,12 +82,7 @@ function RandomUser() {
             hover:scale-105
           "
         >
-          <RefreshCw
-            className={`h-4 w-4 ${
-              loading ? "animate-spin" : ""
-            }`}
-          />
-
+          <RefreshCw className={`h-4 w-4 ${loading ? "animate-spin" : ""}`} />
           Refresh
         </button>
       </div>
@@ -126,7 +115,6 @@ function RandomUser() {
           >
             {/* Image */}
             <div className="relative h-[320px] overflow-hidden">
-              
               <img
                 src={eachuser.picture.large}
                 alt=""
@@ -158,7 +146,6 @@ function RandomUser() {
 
             {/* Content */}
             <div className="p-8">
-              
               {/* Gender */}
               <p
                 className="
@@ -186,20 +173,16 @@ function RandomUser() {
                 {eachuser.name.first}
                 <br />
 
-                <span className="text-zinc-500">
-                  {eachuser.name.last}
-                </span>
+                <span className="text-zinc-500">{eachuser.name.last}</span>
               </h1>
 
               {/* Info */}
               <div className="mt-8 space-y-4">
-                
                 <div className="flex items-center gap-3">
                   <MapPin className="h-4 w-4 text-zinc-400" />
 
                   <p className="text-sm text-zinc-600">
-                    {eachuser.location.city},{" "}
-                    {eachuser.location.country}
+                    {eachuser.location.city}, {eachuser.location.country}
                   </p>
                 </div>
 
@@ -233,7 +216,6 @@ function RandomUser() {
               >
                 {/* Social */}
                 <div className="flex items-center gap-4">
-                  
                   <i className="fa fa-instagram text-zinc-400 transition hover:text-pink-500 cursor-pointer"></i>
 
                   <i className="fa fa-twitter text-zinc-400 transition hover:text-sky-500 cursor-pointer"></i>
@@ -267,9 +249,7 @@ function RandomUser() {
       {/* Empty */}
       {!loading && user.length === 0 && (
         <div className="py-20 text-center">
-          <p className="text-zinc-500">
-            No users found.
-          </p>
+          <p className="text-zinc-500">No users found.</p>
         </div>
       )}
     </div>

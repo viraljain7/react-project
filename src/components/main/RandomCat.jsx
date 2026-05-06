@@ -1,12 +1,5 @@
 import { useEffect, useState } from "react";
-import {
-  Heart,
-  Globe,
-  Sparkles,
-  Weight,
-  Brain,
-  RefreshCw,
-} from "lucide-react";
+import { Heart, Globe, Sparkles, Weight, Brain, RefreshCw } from "lucide-react";
 
 function RandomCat() {
   const [cat, setCat] = useState(null);
@@ -17,7 +10,7 @@ function RandomCat() {
 
     try {
       const res = await fetch(
-        "https://api.freeapi.app/api/v1/public/cats/cat/random"
+        "https://api.freeapi.app/api/v1/public/cats/cat/random",
       );
 
       const data = await res.json();
@@ -44,7 +37,6 @@ function RandomCat() {
 
   return (
     <div className="min-h-screen bg-[#f6f6f6] flex items-center justify-center p-8 overflow-hidden">
-      
       {/* Glow */}
       <div className="absolute top-0 left-0 h-72 w-72 rounded-full bg-pink-200/40 blur-[120px]" />
 
@@ -63,10 +55,8 @@ function RandomCat() {
         "
       >
         <div className="grid lg:grid-cols-2">
-          
           {/* Left Image */}
           <div className="relative h-[750px] overflow-hidden">
-            
             <img
               src={cat.image}
               alt={cat.name}
@@ -84,7 +74,6 @@ function RandomCat() {
 
             {/* Floating Actions */}
             <div className="absolute right-6 top-6 flex gap-3">
-              
               <button
                 className="
                   flex h-14 w-14 items-center justify-center
@@ -118,7 +107,6 @@ function RandomCat() {
 
             {/* Bottom Text */}
             <div className="absolute bottom-8 left-8 text-white">
-              
               <p className="text-sm uppercase tracking-[5px] text-white/70">
                 Cat Breed
               </p>
@@ -135,10 +123,8 @@ function RandomCat() {
 
           {/* Right Side */}
           <div className="p-10">
-            
             {/* Tags */}
             <div className="flex flex-wrap gap-3">
-              
               <div className="rounded-full bg-zinc-100 px-4 py-2 text-xs font-semibold uppercase tracking-[3px] text-zinc-700">
                 {cat.origin}
               </div>
@@ -154,25 +140,17 @@ function RandomCat() {
 
             {/* Temperament */}
             <div className="mt-10">
-              
-              <h2 className="text-3xl font-black text-zinc-900">
-                Temperament
-              </h2>
+              <h2 className="text-3xl font-black text-zinc-900">Temperament</h2>
 
-              <p className="mt-5 leading-8 text-zinc-600">
-                {cat.temperament}
-              </p>
+              <p className="mt-5 leading-8 text-zinc-600">{cat.temperament}</p>
             </div>
 
             {/* Stats */}
             <div className="mt-10 grid grid-cols-2 gap-5">
-              
               <div className="rounded-3xl border border-zinc-100 bg-zinc-50 p-6">
                 <Weight className="h-5 w-5 text-zinc-700" />
 
-                <p className="mt-4 text-sm text-zinc-500">
-                  Weight
-                </p>
+                <p className="mt-4 text-sm text-zinc-500">Weight</p>
 
                 <h3 className="mt-1 text-2xl font-black text-zinc-900">
                   {cat.weight.metric} KG
@@ -182,9 +160,7 @@ function RandomCat() {
               <div className="rounded-3xl border border-zinc-100 bg-zinc-50 p-6">
                 <Brain className="h-5 w-5 text-zinc-700" />
 
-                <p className="mt-4 text-sm text-zinc-500">
-                  Intelligence
-                </p>
+                <p className="mt-4 text-sm text-zinc-500">Intelligence</p>
 
                 <h3 className="mt-1 text-2xl font-black text-zinc-900">
                   {cat.intelligence}/5
@@ -194,9 +170,7 @@ function RandomCat() {
               <div className="rounded-3xl border border-zinc-100 bg-zinc-50 p-6">
                 <Sparkles className="h-5 w-5 text-zinc-700" />
 
-                <p className="mt-4 text-sm text-zinc-500">
-                  Energy
-                </p>
+                <p className="mt-4 text-sm text-zinc-500">Energy</p>
 
                 <h3 className="mt-1 text-2xl font-black text-zinc-900">
                   {cat.energy_level}/5
@@ -206,9 +180,7 @@ function RandomCat() {
               <div className="rounded-3xl border border-zinc-100 bg-zinc-50 p-6">
                 <Globe className="h-5 w-5 text-zinc-700" />
 
-                <p className="mt-4 text-sm text-zinc-500">
-                  Country
-                </p>
+                <p className="mt-4 text-sm text-zinc-500">Country</p>
 
                 <h3 className="mt-1 text-2xl font-black text-zinc-900">
                   {cat.country_codes}
@@ -218,7 +190,6 @@ function RandomCat() {
 
             {/* Extra Info */}
             <div className="mt-10 space-y-5">
-              
               <div>
                 <p className="text-xs uppercase tracking-[4px] text-zinc-400">
                   Adaptability
@@ -267,7 +238,6 @@ function RandomCat() {
 
             {/* Footer */}
             <div className="mt-12 flex items-center justify-between border-t border-zinc-100 pt-8">
-              
               <div>
                 <p className="text-xs uppercase tracking-[4px] text-zinc-400">
                   Hypoallergenic
