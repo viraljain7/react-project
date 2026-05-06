@@ -1,9 +1,6 @@
 import React from "react";
 
-import { Routes, Route, Link } from "react-router-dom";
-
-import { MarqueeDemo } from "./components/ui/marquee-demo";
-import { RippleDemo } from "./components/ui/ripple-demo";
+import { Routes, Route, Link } from "react-router";
 
 import RandomUserCard from "./components/main/RandomUser";
 import RandomJokes from "./components/main/RandomJokes";
